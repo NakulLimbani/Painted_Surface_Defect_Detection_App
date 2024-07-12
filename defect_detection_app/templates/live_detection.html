@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Defect Detection</title>
+    {% block content %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #303030);
+            background-color: #222;
+            color: #fff;
+        }
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative; /* Added for positioning the image */
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        label:hover {
+            background-color: #ff4141;
+        }
+        button[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-decoration: none; /* Remove underline */
+        }
+        button[type="submit"] span {
+            text-decoration: none; /* Remove underline */
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        /* Style for animated image */
+        .animated-photo {
+            width: 100px; /* Adjust width and height as needed */
+            height: auto;
+            position: absolute;
+            top: -50px;
+            left: calc(50% - 50px);
+            animation: float 3s ease-in-out infinite;
+        }
+    
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <h1>Live Defect Detection</h1>
+        <!-- 
+        <img id="live_frame" src="" alt="Live Detection Frame"> -->
+        {% load static %}
+        <img class="animated-photo" src= {% static "D:/CODER/Research Projects/Painted_Surface_Defect_Detection_App/defect_detection_project/static/assets/camera_photo.jpeg" %} alt="Live Detection Image"> <!-- Replace the URL with your animated photo -->
+    
+        <form method="post" action="">
+            {% csrf_token %}
+            <button type="submit" name="start_detection"><i class="fas fa-play-circle icon"></i><span class="camera-icon">&#128249;</span> Start Detection</button>
+            <button type="submit" name="stop_detection"><i class="fas fa-stop-circle icon"></i><span class="camera-icon">&#128249;</span> Stop Detection</button>
+        </form>
+        <script>
+            function refreshFrame() {
+                fetch('/get_live_frame/')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('live_frame').src = 'data:image/jpeg;base64,' + data.frame;
+                        setTimeout(refreshFrame, 1000);  // Refresh frame every second
+                    });
+            }
+        
+            refreshFrame();  // Initial call to start refreshing frame
+        
+        </script>
+    </div>
+</body>
+{% endblock %}
+</html>

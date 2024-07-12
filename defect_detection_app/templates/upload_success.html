@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+    {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/upload_success.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 50px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #303030);
+            color: #fff;
+            text-align: center;
+        }
+        .classification-report {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        .info-heading {
+            font-weight: bold;
+            color: #64ffda;
+        }
+        .value {
+            color: #f8f8f2;
+            font-weight: bold;
+        }
+        h2 {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #ff79c6;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #bd93f9;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            max-width: 100%; /* Set maximum width for the image container */
+            overflow: hidden; /* Hide any overflow */
+        }
+        
+        .image-container img {
+            max-width: 50%; /* Set maximum width for the image */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin: 0 10px;
+            /* Optional: Add transition for a smoother resizing effect */
+            transition: max-width 0.3s ease-in-out;
+        }
+        
+    </style>
+</head>
+<body>  
+    <div class="classification-report">
+        <h3>🎉 Image uploaded successfully! 🎉</h3>
+        <p><span class="info-heading">Classification:</span> <span class="value">{{ classification }}</span></p>
+        <p><span class="info-heading">Max Width(in mm):</span> <span class="value">{{ maximum_width }}</span></p>
+        <p><span class="info-heading">Severity:</span> <span class="value">{{ severity }}</span></p>
+    </div>
+    
+    {% if classification == "Defective" %}
+    <h2>Solutions:</h2>
+    {% if severity == "Low" %}
+        <p>. Apply a sealant or adhesive to cover the crack and prevent further damage.</p>
+        <p>. Clean and fill the crack with epoxy resin for a durable repair.</p>
+        <p>. Use a waterproof sealant to protect the crack from moisture.</p>
+    {% elif severity == "Moderate" %}
+        <p>. Apply a concrete or masonry patch to fill and repair the crack.</p>
+        <p>. Use a polymer-modified cementitious coating to seal and protect the crack.</p>
+        <p>. Consider installing a flexible sealant or joint filler to prevent future cracking.</p>
+    {% elif severity == "High" %}
+        <p>. Replace the damaged section with a new concrete or masonry unit for a permanent solution.</p>
+        <p>. Consult a structural engineer to assess the extent of the damage and recommend repairs.</p>
+        <p>. Consider reinforcing the area with steel or fiberglass to prevent future cracking.</p>
+    {% endif %}
+    {% endif %}
+
+    <img src="{{ image.image_file.url }}" alt="Uploaded Image">
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    {% block content %}
+    <style>
+        body {
+            margin: 0px;
+            padding-bottom: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #303030); /* Dark linear gradient background */
+            color: #fff; /* Text color */
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 48px;
+            color: #fff; /* White text color */
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #bbb; /* Light gray text color */
+            font-weight: normal; /* Normal font weight */
+        }
+        /* Remove underline from anchor links */
+        a {
+            text-decoration: none;
+            color: inherit; /* Inherit text color */
+
+        }
+       
+        /* CSS for input fields and submit button */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            paddin-top: 5px;
+            margin-bottom: 20px;
+            width: 30%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Blue color */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Developer section styles */
+        .developer-section {
+            margin-top: 50px;
+        }
+
+        .developer {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .developer img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-bottom: 10px;
+        }
+
+        .developer h3 {
+            margin: 5px 0 10px;
+            font-size: 24px;
+        }
+
+        .developer p {
+            font-size: 18px;
+            color: #bbb; /* Light gray text color */
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <p>Feel free to leave us your feedback or any inquiries you may have:</p>
+    <br>
+    <form id="contactForm" method="post" class="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl" action="{% url 'contact_us' %}">
+        {% csrf_token %}
+        <label for="name"><h3>Name:</h3></label>
+        <input type="text" id="name" name="name" placeholder="Your name here..." required><br>
+        <label for="email"><h3>Email:</h3></label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required><br>
+        <label for="message"><h3>Message:</h3></label>
+        <textarea id="message" name="message" rows="3" placeholder="Enter Your Feedback here..." required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="feedbackMessage" style="display: none;">
+        Thank you for your feedback!
+    </div>
+    <div class="developer-section">
+        <h2>Meet the Developers</h2>
+        <div class="developer">
+            {% load static %}
+            <!--<img src="{% static "D:/CODER/Research Projects/Painted_Surface_Defect_Detection_App/defect_detection_project/static/assets/profile-pic.png" %}" alt="Developer 1"> -->
+            <h3>Nakul Limbani</h3>
+        </div>
+        <div class="developer">
+            <!-- <img src="{% static 'images/developer2.jpg' %}" alt="Developer 2"> -->
+            <h3>Shiv Rastogi</h3>
+        </div>
+        <div class="developer">
+            <!-- <img src="{% static 'images/developer2.jpg' %}" alt="Developer 2"> -->
+            <h3>Premalatha G</h3>
+        </div>
+        <!-- Add more developers as needed -->
+    </div>
+</body>
+</html>
+{% endblock %}
+

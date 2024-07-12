@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Defect Detection{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f1f1f, #303030);
+        }
+        header {
+            background: linear-gradient(135deg, #1f1f1f, #303030);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background: linear-gradient(to bottom right, #444444, #333333); /* Dark linear gradient background */
+            background-color: #444;
+            padding: 5px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Defect Detection Application</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'upload_image' %}">Upload Image</a></li>
+            <li><a href="{% url 'live_detection' %}">Live Detection</a></li>
+            
+            <!-- Add other navigation links -->
+            <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        &copy; 2024 Defect Detection Application. All rights reserved.
+    </footer>
+</body>
+</html>

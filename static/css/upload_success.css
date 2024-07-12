@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1f1f1f;
+    color: #fff;
+    text-align: center;
+}
+.classification-report {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff6b6b;
+}
+.info-heading {
+    font-weight: bold;
+    color: #64ffda;
+}
+.value {
+    color: #f8f8f2;
+    font-weight: bold;
+}
+h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #ff79c6;
+}
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #bd93f9;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 0 10px;
+}

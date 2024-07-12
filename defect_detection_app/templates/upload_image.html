@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Image</title>
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+        margin: 0;
+        padding-bottom: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1f1f1f, #303030);
+        background-color: #222;
+        color: #fff;
+    }
+    .container {
+        max-width: 500px;
+        margin: 100px auto;
+        padding: 40px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        position: relative; /* Added for positioning the image */
+    }
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    label {
+        background-color: #ff6b6b;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    label:hover {
+        background-color: #ff4141;
+    }
+    button[type="submit"] {
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-decoration: none; /* Remove underline */
+    }
+    button[type="submit"] span {
+        text-decoration: none; /* Remove underline */
+    }
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    /* Style for animated image */
+    .animated-photo {
+        width: 100px; /* Adjust width and height as needed */
+        height: auto;
+        position: absolute;
+        top: -50px;
+        left: calc(50% - 50px);
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+</style>
+</head>
+<body>  
+
+<div class="container">
+    <h1>Upload Image</h1>
+    {% load static %}
+    <img class="animated-photo" src= {% static "D:/CODER/Research Projects/Painted_Surface_Defect_Detection_App/defect_detection_project/static/assets/upload_animated_image.png"%} alt="Animated Photo"> <!-- Replace the URL with your animated photo -->
+    <form method="post" enctype="multipart/form-data">
+        {{ form }}
+        <input type="file" id="fileInput" name="image" accept="image/*" autofocus>
+        <button type="submit"><span><i class="fas fa-upload"></i> Upload</span></button>
+        {% csrf_token %}
+        <!-- {% csrf_token %} -->
+    </form>
+</div>
+</body>
+{% endblock %}
+</html>

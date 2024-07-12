@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    
+    {% block content %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #303030);
+            /* Dark linear gradient background */
+            color: #fff; /* Text color */
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 48px;
+            color: #fff; /* White text color */
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 36px;
+            color: #bbb; /* Light gray text color */
+            font-weight: normal; /* Normal font weight */
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .option {
+            margin: 20px;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Light linear gradient background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+        }
+        .option h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333; /* Dark text color */
+            font-weight: bold; /* Bold font weight */
+        }
+        .option p {
+            font-size: 18px;
+            color: #666; /* Medium gray text color */
+            font-style: italic; /* Italic font style */
+        }
+        .option img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+        .why-choose-us {
+            background: linear-gradient(to bottom right, #444444, #333333); /* Dark linear gradient background */
+            color: #fff; /* Text color */
+            padding: 50px 0;
+        }
+        .why-choose-us h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .why-choose-us p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Remove underline from anchor links */
+        a {
+            text-decoration: none;
+            color: inherit; /* Inherit text color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Defect Detection App!</h1>
+    <h2>Select an option:</h2>
+    <div class="options">
+        <a href="{% url 'upload_image' %}">
+            <div class="option">
+                {% load static %}
+                <img src={% static 'D:\\CODER\Research Projects\Painted_Surface_Defect_Detection_App\defect_detection_project\static\assets\upload_image.jpeg' %} alt="Upload Image">
+                <h3>Upload Image</h3>
+                <p>Upload an image to detect defects.</p>
+            </div>
+        </a>
+        <a href="{% url 'live_detection' %}">
+            <div class="option">
+                {% load static %}
+                <img src={% static 'D:\CODER\Research Projects\Painted_Surface_Defect_Detection_App\defect_detection_project\static\assets\camera_photo.jpeg' %} alt="Start Live Detection">
+                <h3>Start Live Detection</h3>
+                <p>Initiate live detection of defects.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <p>We provide state-of-the-art defect detection technology.</p>
+        <p>Our system ensures accurate and reliable results.</p>
+        <p>Experience seamless integration and user-friendly interface.</p>
+    </div>
+</body>
+</html>
+{% endblock %}
