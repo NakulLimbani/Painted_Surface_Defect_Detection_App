@@ -2,6 +2,6 @@ channels==4.0.0
 Django==5.0.3
 keras==3.1.1
 matplotlib==3.8.3
-numpy==2.0.0
+numpy>=1.21
 opencv_contrib_python==4.9.0.80
 opencv_python==4.9.0.80
