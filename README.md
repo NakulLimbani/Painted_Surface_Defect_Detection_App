@@ -11,7 +11,7 @@ A user-friendly web application for detecting defects on painted surfaces using 
 - [🔧 Usage](#-usage)
 - [🤝 Contributing](#-contributing)
 - [📜 License](#-license)
-- 
+
 ## 📖 Introduction
 
 The Painted Surface Defect Detection App offers real-time defect detection for painted surfaces using a webcam, as well as the ability to upload images for defect detection and severity classification. The application is hosted on [PythonAnywhere](https://surfacedefectdetection.pythonanywhere.com/) and utilizes both Django and Flask to provide a comprehensive solution.
