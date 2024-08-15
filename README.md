@@ -33,6 +33,12 @@ The Painted Surface Defect Detection App offers real-time defect detection for p
 - **Backend**: 
   - ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
   - ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+- **Tools & Libraries**:
+  - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  - ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+  - ![Computer Vision](https://img.shields.io/badge/Computer_Vision-000000?style=for-the-badge&logo=opencv&logoColor=white)
+  - ![Machine Learning](https://img.shields.io/badge/Machine_Learning-F7DF1E?style=for-the-badge&logo=python&logoColor=black)
+  - ![Deep Learning](https://img.shields.io/badge/Deep_Learning-FF6F00?style=for-the-badge&logo=python&logoColor=white)
 - **Database**: SQLite (default for Django applications).
 
 ## 🚀 Setup
